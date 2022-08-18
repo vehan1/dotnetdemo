@@ -1,9 +1,16 @@
 # Docker
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Azure subscription 1(57716080-d23d-4cde-abc5-2727f523d987)'
+    azureContainerRegistry: '{"loginServer":"usha1.azurecr.io", "id" : "/subscriptions/57716080-d23d-4cde-abc5-2727f523d987/resourceGroups/vehan/providers/Microsoft.ContainerRegistry/registries/usha1"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- feature/pipe
+- feature/docker
 
 resources:
 - repo: self
